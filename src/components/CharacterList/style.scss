@@ -1,0 +1,15 @@
+.all-characters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+.error {
+  color: white;
+  padding-top: 100px;
+}
+@media screen and (min-width: 530px) {
+  .all-characters {
+    width: calc(100% - 280px);
+  }
+}
