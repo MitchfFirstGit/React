@@ -10,7 +10,7 @@ export class CharacterList extends Component {
     if (listCharacters.length === 0) {
       return (
         <h1 className="error">
-          We don't have such character, check your input please
+          We don't have such character, check your input please!
         </h1>
       );
     }

@@ -5,3 +5,27 @@
   font-size: 18px;
   padding: 10px 15px;
 }
+
+.page-radio-pagination,
+.page-radio-max-amount {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+.page-label {
+  color: white;
+  font-size: 18px;
+  padding: 10px 15px;
+  margin: 1px;
+}
+
+.page-radio-pagination:checked + .page-label,
+.page-radio-max-amount:checked + .page-label,
+.page-label:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-shadow: white 0px 0px 5px;
+}

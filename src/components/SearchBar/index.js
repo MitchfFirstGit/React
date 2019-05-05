@@ -2,67 +2,63 @@ import React, { Component } from "react";
 import "./style.scss";
 export class SearchBar extends Component {
   state = {
-    data: {
-      gender: "",
-      status: "",
-      sort: "",
-      searchField: ""
-    }
-  };
-  handleChange = ({ target }) => {
-    const { name, value } = target;
-    console.log(name, value);
+    gender: "",
+    status: "",
+    sort: "",
+    searchField: ""
   };
 
-  sortList = ({ target }) => {
+  changeState = ({ target }) => {
     let { name, value } = target;
-    this.state.data[name] = value;
+    this.setState({ [name]: value }, () => {
+      this.handleChange(value);
+    });
+  };
+
+  handleChange = value => {
     let newList = this.props.initialListCharacters;
 
-    const filter = (initialListCharacters, valueState, propObj) =>
-      initialListCharacters.filter(item => {
-        if (valueState === "all") return true;
-        return item[propObj].toLowerCase() === valueState;
-      });
-
-    const filterByGenderAndStatus = (firstSort, secondSort) => {
-      newList = filter(
-        this.props.initialListCharacters,
-        this.state.data[firstSort],
-        firstSort
-      );
-
-      if (this.state.data[secondSort] !== "") {
-        newList = filter(newList, this.state.data[secondSort], secondSort);
-      }
-    };
-
-    if (this.state.data.gender !== "") {
-      filterByGenderAndStatus("gender", "status");
+    if (this.state.gender !== "") {
+      newList = this.filterByGenderAndStatus("gender", "status", newList);
     } else {
-      if (this.state.data.status !== "") {
-        filterByGenderAndStatus("status", "gender");
+      if (this.state.status !== "") {
+        newList = this.filterByGenderAndStatus("status", "gender", newList);
       }
     }
 
-    if (target.value === "nameAsc" || this.state.data.sort === "nameAsc") {
+    if (value === "nameAsc" || this.state.sort === "nameAsc") {
       newList.sort((a, b) => (a.name < b.name ? -1 : 1));
     }
-    if (target.value === "nameDesc" || this.state.data.sort === "nameDesc") {
+    if (value === "nameDesc" || this.state.sort === "nameDesc") {
       newList.sort((a, b) => (a.name > b.name ? -1 : 1));
     }
 
-    if (this.state.data.searchField)
+    if (this.state.searchField)
       newList = newList.filter(({ name }) =>
-        name.toLowerCase().includes(this.state.data.searchField.toLowerCase())
+        name.toLowerCase().includes(this.state.searchField.toLowerCase())
       );
     this.props.onChange(newList);
+  };
+
+  filter = (filterList, valueState, propObj) =>
+    filterList.filter(item => {
+      if (valueState === "all") return true;
+      return item[propObj].toLowerCase() === valueState;
+    });
+
+  filterByGenderAndStatus = (firstSort, secondSort, filterList) => {
+    filterList = this.filter(filterList, this.state[firstSort], firstSort);
+
+    if (this.state[secondSort] !== "") {
+      filterList = this.filter(filterList, this.state[secondSort], secondSort);
+    }
+    return filterList;
   };
 
   render() {
     return (
       <section className="search">
-        <form onChange={this.sortList}>
+        <form onChange={this.changeState} onSubmit={e => e.preventDefault()}>
           <input
             type="text"
             className="search-by-input"

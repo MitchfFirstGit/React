@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Page } from "../Page";
 import "./style.scss";
+import { Page } from "../Page";
 export class Pagination extends Component {
   handleClick = ({ target }) => {
-    let currentPage = Number(target.innerHTML);
-    if (target.tagName === "BUTTON") {
+    if (target.tagName === "INPUT") {
+      let currentPage = Number(target.parentElement.lastChild.innerHTML);
+      console.log(target.parentElement.parentElement);
       if (target.value !== "") {
         this.props.onClick(this.props.listCharacters, 1, Number(target.value));
       } else {
@@ -24,7 +25,7 @@ export class Pagination extends Component {
 
     if (pages < 8) {
       for (let i = 1; i <= pages; i++) {
-        arrayPages.push(<Page page={i} key={i} />);
+        arrayPages.push(<Page page={i} key={i} name={"pagination"} />);
       }
     } else {
       if (currentPage < 5) {
@@ -37,7 +38,7 @@ export class Pagination extends Component {
             );
             i = pages;
           }
-          arrayPages.push(<Page page={i} key={i} />);
+          arrayPages.push(<Page page={i} key={i} name={"pagination"} />);
         }
       }
       if (currentPage >= 5 && currentPage <= pages - 4) {
@@ -58,7 +59,7 @@ export class Pagination extends Component {
             );
             i = pages;
           }
-          arrayPages.push(<Page page={i} key={i} />);
+          arrayPages.push(<Page page={i} key={i} name={"pagination"} />);
         }
       }
       if (currentPage > pages - 4) {
@@ -71,7 +72,7 @@ export class Pagination extends Component {
             );
             i = pages - 4;
           }
-          arrayPages.push(<Page page={i} key={i} />);
+          arrayPages.push(<Page page={i} key={i} name={"pagination"} />);
         }
       }
     }
@@ -85,7 +86,7 @@ export class Pagination extends Component {
       return;
     }
     for (let i = 0, j = 10; i < 3; i++, j = 50 * i) {
-      arrayPages.push(<Page page={j} value={j} key={i} />);
+      arrayPages.push(<Page page={j} value={j} key={i} name={"max-amount"} />);
     }
     return arrayPages;
   };
