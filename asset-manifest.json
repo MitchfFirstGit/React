@@ -1,13 +1,13 @@
 {
-  "main.css": "/React/static/css/main.94ded612.chunk.css",
-  "main.js": "/React/static/js/main.cd5ae4c7.chunk.js",
-  "main.js.map": "/React/static/js/main.cd5ae4c7.chunk.js.map",
-  "runtime~main.js": "/React/static/js/runtime~main.d53f88d2.js",
-  "runtime~main.js.map": "/React/static/js/runtime~main.d53f88d2.js.map",
-  "static/js/2.63aac54b.chunk.js": "/React/static/js/2.63aac54b.chunk.js",
-  "static/js/2.63aac54b.chunk.js.map": "/React/static/js/2.63aac54b.chunk.js.map",
-  "index.html": "/React/index.html",
-  "precache-manifest.7e2dd8cbe3d496b3a150db77953ce291.js": "/React/precache-manifest.7e2dd8cbe3d496b3a150db77953ce291.js",
-  "service-worker.js": "/React/service-worker.js",
-  "static/css/main.94ded612.chunk.css.map": "/React/static/css/main.94ded612.chunk.css.map"
+  "main.css": "/Tiny-social-friends-app/static/css/main.fd58873b.chunk.css",
+  "main.js": "/Tiny-social-friends-app/static/js/main.7995e5d6.chunk.js",
+  "main.js.map": "/Tiny-social-friends-app/static/js/main.7995e5d6.chunk.js.map",
+  "runtime~main.js": "/Tiny-social-friends-app/static/js/runtime~main.7715ee28.js",
+  "runtime~main.js.map": "/Tiny-social-friends-app/static/js/runtime~main.7715ee28.js.map",
+  "static/js/2.b185d042.chunk.js": "/Tiny-social-friends-app/static/js/2.b185d042.chunk.js",
+  "static/js/2.b185d042.chunk.js.map": "/Tiny-social-friends-app/static/js/2.b185d042.chunk.js.map",
+  "index.html": "/Tiny-social-friends-app/index.html",
+  "precache-manifest.ab7edbbb7d978b1d79995ef2b8e45288.js": "/Tiny-social-friends-app/precache-manifest.ab7edbbb7d978b1d79995ef2b8e45288.js",
+  "service-worker.js": "/Tiny-social-friends-app/service-worker.js",
+  "static/css/main.fd58873b.chunk.css.map": "/Tiny-social-friends-app/static/css/main.fd58873b.chunk.css.map"
 }
